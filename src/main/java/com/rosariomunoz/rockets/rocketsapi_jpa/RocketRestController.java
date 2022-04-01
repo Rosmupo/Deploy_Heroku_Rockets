@@ -50,14 +50,14 @@ public class RocketRestController {
 
     }
 
-    @GetMapping("/rockets/{rocketId}/propellers") //FALLA
+    @GetMapping("/rockets/{rocketId}/propellers")
     public List<Propeller> propellerList(@PathVariable String rocketId) throws Exception {
         return rocketService.getRocketPropellers(rocketId);
     }
 
-    @DeleteMapping("/rockets/{rocketId}/propellers")// FALLA
+    @DeleteMapping("/rockets/{rocketId}/propellers")
     public void deleteAllRocketPropellers(@PathVariable String rocketId) throws Exception {
-         rocketService.deleteAllRocketPropellers(rocketId);
+        rocketService.deleteAllRocketPropellers(rocketId);
     }
 
 

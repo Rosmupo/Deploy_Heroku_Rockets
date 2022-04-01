@@ -40,13 +40,14 @@ public class RocketService {
     public Propeller getPropeller(String propellerId) throws Exception {
         return propellerRepository.findById(propellerId).get();
     }
+
     @Transactional
     public void deleteAllRocketPropellers(String rocketId) throws Exception {
         Rocket rocket = searchRocket(rocketId);
         rocket.setSumAllPowerPropellers(0);
         rocketRepository.save(rocket);
 
-       propellerRepository.deleteAllByRocket(rocket);
+        propellerRepository.deleteAllByRocket(rocket);
 
     }
 
@@ -88,17 +89,19 @@ public class RocketService {
     public Rocket speedUpRocket(String rocketId, int times) throws Exception {
         Rocket rocket = searchRocket(rocketId);
         for (int i = 0; i < times; i++) {
-        rocket.addSpeedUp();}
+            rocket.addSpeedUp();
+        }
         rocketRepository.save(rocket);
         return rocket;
 
 
-
     }
+
     public Rocket slowDownRocket(String rocketId, int times) throws Exception {
         Rocket rocket = searchRocket(rocketId);
         for (int i = 0; i < times; i++) {
-        rocket.slowDown();}
+            rocket.slowDown();
+        }
         rocketRepository.save(rocket);
         return rocket;
     }
